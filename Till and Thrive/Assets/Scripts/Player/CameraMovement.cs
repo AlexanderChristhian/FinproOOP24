@@ -7,7 +7,6 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(0f, 0f, -10f);  // Camera offset from player
     
     [Header("Follow Settings")]
-    [SerializeField] private float smoothSpeed = 5f;    // How smoothly the camera follows
     [SerializeField] private Vector2 maxPosition = new Vector2(10f, 10f); // Max camera bounds
     [SerializeField] private Vector2 minPosition = new Vector2(-10f, -10f); // Min camera bounds
 
@@ -41,8 +40,7 @@ public class CameraFollow : MonoBehaviour
         desiredPosition.x = Mathf.Clamp(desiredPosition.x, minPosition.x, maxPosition.x);
         desiredPosition.y = Mathf.Clamp(desiredPosition.y, minPosition.y, maxPosition.y);
         
-        // Smoothly move camera
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.position = smoothedPosition;
+        // Instantly move camera
+        transform.position = desiredPosition;
     }
 }

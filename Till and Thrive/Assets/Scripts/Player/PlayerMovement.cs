@@ -2,72 +2,86 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float pixelsPerUnit = 16f;
+    public float moveSpeed = 5f;
+    
+    public Rigidbody2D rb;
+    public Animator animator;
+    
+    Vector2 movement;
+    private string lastDirection = "down"; // Default direction
 
-    private Rigidbody2D rb;
-    private Vector2 movement;
-    private Vector2 targetPosition;
-    private bool isMoving;
-
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true;
-        targetPosition = rb.position;
+        animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
         // Get input
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
-        if (!isMoving)
+        // Update animator parameters
+        animator.SetFloat("horizontal", movement.x);
+        animator.SetFloat("vertical", movement.y);
+        animator.SetFloat("speed", movement.sqrMagnitude);
+
+        // Update direction parameters based on movement
+        if (movement != Vector2.zero)
         {
-            // Allow both horizontal and vertical movement simultaneously
-            movement = new Vector2(horizontalInput, verticalInput);
+            // Reset all direction floats
+            animator.SetFloat("up", 0f);
+            animator.SetFloat("down", 0f);
+            animator.SetFloat("left", 0f);
+            animator.SetFloat("right", 0f);
 
-            // Normalize diagonal movement to maintain consistent speed
-            if (movement.magnitude > 1f)
+            // Set the new direction
+            if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
             {
-                movement.Normalize();
+                // Horizontal movement is stronger
+                if (movement.x > 0)
+                {
+                    lastDirection = "right";
+                    animator.SetFloat("right", 1f);
+                }
+                else
+                {
+                    lastDirection = "left";
+                    animator.SetFloat("left", 1f);
+                }
             }
-
-            // If there's movement input, set new target position
-            if (movement != Vector2.zero)
+            else
             {
-                // Calculate the next position in grid units
-                Vector2 nextPosition = rb.position + movement * (1f / pixelsPerUnit);
-                // Round to nearest pixel grid position
-                targetPosition = new Vector2(
-                    Mathf.Round(nextPosition.x * pixelsPerUnit) / pixelsPerUnit,
-                    Mathf.Round(nextPosition.y * pixelsPerUnit) / pixelsPerUnit
-                );
-                isMoving = true;
+                // Vertical movement is stronger
+                if (movement.y > 0)
+                {
+                    lastDirection = "up";
+                    animator.SetFloat("up", 1f);
+                }
+                else
+                {
+                    lastDirection = "down";
+                    animator.SetFloat("down", 1f);
+                }
             }
+        }
+        // Keep last direction active when idle
+        else
+        {
+            // Reset all direction floats first
+            animator.SetFloat("up", 0f);
+            animator.SetFloat("down", 0f);
+            animator.SetFloat("left", 0f);
+            animator.SetFloat("right", 0f);
+            
+            // Set last direction to 1
+            animator.SetFloat(lastDirection, 1f);
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (isMoving)
-        {
-            Vector2 currentPosition = rb.position;
-            Vector2 newPosition = Vector2.MoveTowards(
-                currentPosition,
-                targetPosition,
-                moveSpeed * Time.fixedDeltaTime
-            );
-
-            rb.MovePosition(newPosition);
-
-            if (Vector2.Distance(rb.position, targetPosition) < 0.01f)
-            {
-                rb.position = targetPosition;
-                isMoving = false;
-            }
-        }
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
