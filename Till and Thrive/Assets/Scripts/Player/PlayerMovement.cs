@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     private string lastDirection = "down"; // Default direction
 
+    private bool canMoveHorizontal = true;
+    private bool canMoveVertical = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,8 +22,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Get input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        float rawX = Input.GetAxisRaw("Horizontal");
+        float rawY = Input.GetAxisRaw("Vertical");
+        
+        // Apply movement restrictions
+        movement.x = canMoveHorizontal ? rawX : 0;
+        movement.y = canMoveVertical ? rawY : 0;
 
         // Update animator parameters
         animator.SetFloat("horizontal", movement.x);
@@ -82,6 +89,41 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        // Use MovePosition instead of directly modifying velocity
+        Vector2 newPosition = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(newPosition);
+    }
+
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            canMoveHorizontal = true;
+            canMoveVertical = true;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            // Get the collision normal to determine direction of impact
+            Vector2 normal = collision.GetContact(0).normal;
+            
+            // Stop horizontal movement if hitting a vertical surface
+            if (Mathf.Abs(normal.x) > 0.5f)
+            {
+                movement.x = 0;
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
+            
+            // Stop vertical movement if hitting a horizontal surface
+            if (Mathf.Abs(normal.y) > 0.5f)
+            {
+                movement.y = 0;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+            }
+        }
     }
 }
