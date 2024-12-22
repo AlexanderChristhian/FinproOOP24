@@ -1,8 +1,0 @@
-.Text {
-    font-size: 200px;
-    -unity-font: url("project://database/Assets/Sprite%20Assets/Sprout%20Lands%20-%20UI%20Pack%20-%20Premium%20pack/fonts/pixelFont-7-8x14-sproutLands.ttf?fileID=12800000&guid=8160e2a0a40d0724b8563c33b0abba53&type=3#pixelFont-7-8x14-sproutLands");
-    -unity-font-definition: initial;
-    color: rgb(164, 194, 99);
-    -unity-text-outline-color: rgb(243, 244, 231);
-    -unity-text-outline-width: 3px;
-}
