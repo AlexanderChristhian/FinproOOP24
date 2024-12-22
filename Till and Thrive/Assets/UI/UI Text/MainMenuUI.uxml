@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/UI%20Text/TextSettings.uss?fileID=7433441132597879392&amp;guid=2266f902bd26cf3458b15356209dcb46&amp;type=3#TextSettings" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row-reverse; flex-wrap: wrap-reverse; justify-content: flex-end; align-self: center;">
+            <ui:Label tabindex="-1" text="TILL AND&#10;THRIVE&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" class="Text" style="justify-content: center; align-items: center; align-self: center; -unity-text-align: upper-center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1;" />
+    <ui:VisualElement style="flex-grow: 1;" />
+</ui:UXML>
