@@ -71,7 +71,7 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -84,7 +84,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 1
+    fileImportMode: 0
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638693882144678343
+  platformSettingsDirtyTick: 638704643362116582
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -284,7 +284,169 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 28, y: 28}
-  spriteSheetImportData: []
+  spriteSheetImportData:
+  - name: Water animation_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 28
+      width: 16
+      height: 16
+    spriteID: 323bab1972787184ca5af0baa59597d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -8, y: -8}
+      - {x: -8, y: 8}
+      - {x: -7, y: 8}
+      - {x: -7, y: -8}
+    - outline:
+      - {x: -8, y: 6}
+      - {x: -8, y: 8}
+      - {x: 8, y: 8}
+      - {x: 8, y: 6}
+    - outline:
+      - {x: 6, y: -8}
+      - {x: 6, y: 8}
+      - {x: 8, y: 8}
+      - {x: 8, y: -8}
+    - outline:
+      - {x: -8, y: -8}
+      - {x: -8, y: -6}
+      - {x: 8, y: -6}
+      - {x: 8, y: -8}
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Water animation_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 28
+      width: 16
+      height: 16
+    spriteID: bcdef8326fe5c46418ceea650c43f51b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -8, y: 6}
+      - {x: -8, y: 8}
+      - {x: 8, y: 8}
+      - {x: 8, y: 6}
+    - outline:
+      - {x: -8, y: -8}
+      - {x: -8, y: 6}
+      - {x: -6, y: 6}
+      - {x: -6, y: -8}
+    - outline:
+      - {x: 5, y: -8}
+      - {x: 5, y: 6}
+      - {x: 8, y: 6}
+      - {x: 8, y: -8}
+    - outline:
+      - {x: -6, y: -8}
+      - {x: -6, y: -5}
+      - {x: 5, y: -5}
+      - {x: 5, y: -8}
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Water animation_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 16
+      height: 16
+    spriteID: 095e9a83411b879419c53a9aa508e4ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -8, y: -8}
+      - {x: -8, y: 8}
+      - {x: -5, y: 8}
+      - {x: -5, y: -8}
+    - outline:
+      - {x: -5, y: 6}
+      - {x: -5, y: 8}
+      - {x: 8, y: 8}
+      - {x: 8, y: 6}
+    - outline:
+      - {x: 5, y: -8}
+      - {x: 5, y: -5}
+      - {x: 5, y: 6}
+      - {x: 8, y: 6}
+      - {x: 8, y: -8}
+    - outline:
+      - {x: -5, y: -8}
+      - {x: -5, y: -5}
+      - {x: 5, y: -5}
+      - {x: 5, y: -8}
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Water animation_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 4
+      width: 16
+      height: 16
+    spriteID: afe8c0e44a975d841bfbddea7fd9e424
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -8, y: -8}
+      - {x: -8, y: 8}
+      - {x: -6, y: 8}
+      - {x: -6, y: -8}
+    - outline:
+      - {x: -6, y: -8}
+      - {x: -6, y: -5}
+      - {x: 8, y: -5}
+      - {x: 8, y: -8}
+    - outline:
+      - {x: 5, y: -5}
+      - {x: 5, y: 4.5134983}
+      - {x: 5, y: 8}
+      - {x: 8, y: 8}
+      - {x: 8, y: -5}
+    - outline:
+      - {x: -6, y: 5}
+      - {x: -6, y: 8}
+      - {x: 5, y: 8}
+      - {x: 5, y: 5}
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
     guid: -785578261
@@ -368,7 +530,7 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
-  generatePhysicsShape: 0
+  generatePhysicsShape: 1
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
