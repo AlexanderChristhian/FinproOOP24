@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonClick : MonoBehaviour
 {
-    AudioManager audioManager;
+    protected AudioManager audioManager;
     [SerializeField] protected AudioClip ButtonClickSound;
     protected void Start()
     {
