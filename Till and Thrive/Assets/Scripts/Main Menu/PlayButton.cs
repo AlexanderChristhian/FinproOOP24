@@ -5,10 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
-    public GameObject MusicPlayer;
-    public void LoadScene()
+    AudioManager audioManager;
+    [SerializeField] AudioClip ButtonClick;
+
+    private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    private void LoadScene()
+    {
+        audioManager.PlaySFX(ButtonClick);
+        StartCoroutine(LoadSceneWithDelay());
+    }
+
+    private IEnumerator LoadSceneWithDelay()
+    {
+        yield return new WaitForSeconds(ButtonClick.length);
         SceneManager.LoadScene("MainGame");
-        DontDestroyOnLoad(MusicPlayer);
     }
 }
