@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             // Play walking sound with delay
             if (Time.time - lastWalkingSoundTime >= walkingSoundDelay)
             {
-                audioManager.PlaySFX(WalkingSound);
+                audioManager.PlaySFX(1, WalkingSound);
                 lastWalkingSoundTime = Time.time;
             }
 

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : ButtonClick
+public class ReturnToMainMenu : ButtonClick
 {
     protected override IEnumerator LoadSceneWithDelay()
     {
         yield return new WaitForSeconds(ButtonClickSound.length);
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("MainMenu");
     }
 }
