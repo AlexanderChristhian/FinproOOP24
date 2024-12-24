@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Border
   - Animals
+  - Egg
   layers:
   - Default
   - TransparentFX

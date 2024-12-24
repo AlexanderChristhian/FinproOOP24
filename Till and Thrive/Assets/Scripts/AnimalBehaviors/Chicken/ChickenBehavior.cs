@@ -15,12 +15,18 @@ public class ChickenBehavior : MonoBehaviour
     [Header("Boundary Settings")]
     public Vector2 spawnPoint;
     public float maxWanderRadius = 5f;
+
+    [Header("Egg Laying Settings")]
+    [SerializeField] private GameObject eggPrefab;
+    [SerializeField] private float layInterval = 5f;
+
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator animator;
 
     private float wanderTimer;
     private float stateTimer;
+    private float layTimer;
     private ChickenState currentState;
     private bool facingRight = true;
 
@@ -39,7 +45,15 @@ public class ChickenBehavior : MonoBehaviour
         spawnPoint = transform.position;
         SetNewWanderTimer();
         SetNewStateTimer();
+        layTimer = layInterval;
         currentState = ChickenState.Idle;
+
+        // Ignore collision with player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
 
     void Update()
@@ -48,6 +62,7 @@ public class ChickenBehavior : MonoBehaviour
         UpdateAnimator();
         UpdateSpriteDirection();
         CheckBoundary();
+        HandleEggLaying();
     }
 
     void FixedUpdate()
@@ -76,6 +91,28 @@ public class ChickenBehavior : MonoBehaviour
             {
                 ChangeActivityState();
             }
+        }
+
+        layTimer -= Time.deltaTime;
+    }
+
+    void HandleEggLaying()
+    {
+        if (layTimer <= 0f && eggPrefab != null)
+        {
+            SpawnEgg();
+            layTimer = layInterval;
+        }
+    }
+
+    void SpawnEgg()
+    {
+        GameObject egg = Instantiate(eggPrefab, transform.position, Quaternion.identity);
+
+        Collider2D eggCollider = egg.GetComponent<Collider2D>();
+        if (eggCollider != null)
+        {
+            Physics2D.IgnoreCollision(eggCollider, GetComponent<Collider2D>());
         }
     }
 

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canMoveHorizontal = true;
     private bool canMoveVertical = true;
-
+    private bool isWatering = false;
     AudioManager audioManager;
     [SerializeField] AudioClip WalkingSound;
 
@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (isWatering) return;
+
         // Get input
         float rawX = Input.GetAxisRaw("Horizontal");
         float rawY = Input.GetAxisRaw("Vertical");
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             // Play walking sound with delay
             if (Time.time - lastWalkingSoundTime >= walkingSoundDelay)
             {
-                audioManager.PlaySFX(WalkingSound);
+                audioManager.PlaySFX(1, WalkingSound);
                 lastWalkingSoundTime = Time.time;
             }
 
@@ -99,6 +101,10 @@ public class PlayerMovement : MonoBehaviour
             // Set last direction to 1
             animator.SetFloat(lastDirection, 1f);
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(Watering());
+        }
     }
 
     void FixedUpdate()
@@ -139,5 +145,21 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, 0);
             }
         }
+    }
+
+    IEnumerator Watering()
+    {
+        // Set isWatering to true
+        isWatering = true;
+
+        // Update Animator to trigger watering animation
+        animator.SetFloat("watering", 1f);
+
+        // Wait for 2 seconds (watering duration)
+        yield return new WaitForSeconds(2f);
+
+        // Reset animator and allow movement again
+        animator.SetFloat("watering", 0f);
+        isWatering = false;
     }
 }

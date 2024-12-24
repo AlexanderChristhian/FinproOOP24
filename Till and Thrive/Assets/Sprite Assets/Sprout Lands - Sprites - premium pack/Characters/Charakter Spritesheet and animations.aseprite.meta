@@ -1663,8 +1663,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 1794}
   - name: TILING FRONT_Frame_5
     originalName: 
-    pivot: {x: -13.214285, y: -24.590908}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1683,8 +1683,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1550}
   - name: TILING FRONT_Frame_7
     originalName: 
-    pivot: {x: -13.214285, y: -27.15}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1723,8 +1723,8 @@ ScriptedImporter:
     uvTransform: {x: 97, y: 1253}
   - name: TILING BACK_Frame_1
     originalName: 
-    pivot: {x: -13.214285, y: -20.666666}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1763,8 +1763,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 1994}
   - name: TILING BACK_Frame_4
     originalName: 
-    pivot: {x: -13.214285, y: -21.652174}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1843,8 +1843,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1819}
   - name: TILING SIDE_Frame_0
     originalName: 
-    pivot: {x: -9.368421, y: -24.88889}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1863,8 +1863,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1279}
   - name: TILING SIDE_Frame_1
     originalName: 
-    pivot: {x: -15.583334, y: -17.92}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1883,8 +1883,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1631}
   - name: TILING SIDE_Frame_2
     originalName: 
-    pivot: {x: -13.357143, y: -18.666668}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1923,8 +1923,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 1643}
   - name: TILING SIDE_Frame_5
     originalName: 
-    pivot: {x: -9.421053, y: -27.9375}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2043,8 +2043,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 1707}
   - name: CHOPPING FRONT_Frame_5
     originalName: 
-    pivot: {x: -12.266665, y: -15.772728}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2163,8 +2163,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 1676}
   - name: CHOPPING BACK_Frame_5
     originalName: 
-    pivot: {x: -13.214285, y: -13.217392}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2183,8 +2183,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1488}
   - name: CHOPPING BACK_Frame_7
     originalName: 
-    pivot: {x: -13.214285, y: -13.217392}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2323,8 +2323,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 1436}
   - name: WATERING FRONT_Frame_0
     originalName: 
-    pivot: {x: -11.4375, y: -9.294118}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2343,8 +2343,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1744}
   - name: WATERING FRONT_Frame_1
     originalName: 
-    pivot: {x: -11.4375, y: -8.888889}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2383,8 +2383,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1769}
   - name: WATERING FRONT_Frame_6
     originalName: 
-    pivot: {x: -11.4375, y: -8.888889}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2443,8 +2443,8 @@ ScriptedImporter:
     uvTransform: {x: 119, y: 1133}
   - name: WATERING BACK_Frame_1
     originalName: 
-    pivot: {x: -11.562499, y: -5.3333335}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2463,8 +2463,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1369}
   - name: WATERING BACK_Frame_2
     originalName: 
-    pivot: {x: -11.562499, y: -5.8947372}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2483,8 +2483,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1604}
   - name: WATERING BACK_Frame_6
     originalName: 
-    pivot: {x: -11.562499, y: -5.3333335}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2523,8 +2523,8 @@ ScriptedImporter:
     uvTransform: {x: 119, y: 1155}
   - name: WATERING SIDE_Frame_0
     originalName: 
-    pivot: {x: -6.333333, y: -4.571429}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2563,8 +2563,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1157}
   - name: WATERING SIDE_Frame_2
     originalName: 
-    pivot: {x: -6.576923, y: -3.7647061}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2583,8 +2583,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1209}
   - name: WATERING SIDE_Frame_6
     originalName: 
-    pivot: {x: -6.576923, y: -3.5555556}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2603,8 +2603,8 @@ ScriptedImporter:
     uvTransform: {x: 37, y: 1183}
   - name: WATERING SIDE_Frame_7
     originalName: 
-    pivot: {x: -6.576923, y: -4.266667}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

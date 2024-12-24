@@ -5,16 +5,24 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 { 
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource SFXSource;
+    [SerializeField] private List<AudioSource> SFXSources;
+
     public void StartMusic(AudioClip musicClip)
     {
         musicSource.clip = musicClip;
         musicSource.Play();
     }
 
-    public void PlaySFX(AudioClip audioClip)
+    public void PlaySFX(int index, AudioClip audioClip)
     {
-        SFXSource.clip = audioClip;
-        SFXSource.Play();
+        if (index >= 0 && index < SFXSources.Count)
+        {
+            SFXSources[index].clip = audioClip;
+            SFXSources[index].Play();
+        }
+        else
+        {
+            Debug.LogWarning("SFX index out of range");
+        }
     }
 }

@@ -201,3 +201,5 @@ MonoBehaviour:
   stateChangeChance: 0.3
   spawnPoint: {x: 0, y: 0}
   maxWanderRadius: 5
+  eggPrefab: {fileID: 6048387135643133818, guid: 521fd456cd824b744908e76d9860264d, type: 3}
+  layInterval: 30
