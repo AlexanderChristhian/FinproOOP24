@@ -24,4 +24,15 @@ public class MoneyComponent : MonoBehaviour
             Debug.Log("Not enough money!");
         }
     }
+
+    // Fungsi untuk mendeteksi objek bertag "Egg"
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Egg"))
+        {
+            AddMoney(10); // Tambahkan uang (misalnya 10 untuk setiap telur)
+            Debug.Log("Egg collected!");
+            Destroy(collision.gameObject); // Hancurkan objek telur
+        }
+    }
 }
