@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8351606635049279100}
   - component: {fileID: -3111861678817538465}
   - component: {fileID: -5555072610255052202}
+  - component: {fileID: -3587176066877169515}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Animals
@@ -95,7 +96,7 @@ Rigidbody2D:
   m_UseAutoMass: 1
   m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -106,7 +107,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!95 &-8351606635049279100
 Animator:
@@ -201,3 +202,17 @@ MonoBehaviour:
   stateChangeChance: 0.3
   spawnPoint: {x: 0, y: 0}
   maxWanderRadius: 5
+--- !u!114 &-3587176066877169515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057174984264009012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941b087584ed2224da9a246d714cb501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  milkPrefab: {fileID: 6384857672833717707, guid: cd927ce06901cda4dba11fd1e731dd83, type: 3}
+  spawnInterval: 10
