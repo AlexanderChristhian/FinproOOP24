@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChickenBehavior : MonoBehaviour
+public class CowBehavior : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 2f;
@@ -16,21 +16,16 @@ public class ChickenBehavior : MonoBehaviour
     public Vector2 spawnPoint;
     public float maxWanderRadius = 5f;
 
-    [Header("Egg Laying Settings")]
-    [SerializeField] private GameObject eggPrefab;
-    [SerializeField] private float layInterval = 5f;
-
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator animator;
 
     private float wanderTimer;
     private float stateTimer;
-    private float layTimer;
-    private ChickenState currentState;
+    private CowState currentState;
     private bool facingRight = true;
 
-    private enum ChickenState
+    private enum CowState
     {
         Idle,
         Moving,
@@ -45,8 +40,7 @@ public class ChickenBehavior : MonoBehaviour
         spawnPoint = transform.position;
         SetNewWanderTimer();
         SetNewStateTimer();
-        layTimer = layInterval;
-        currentState = ChickenState.Idle;
+        currentState = CowState.Idle;
 
         // Ignore collision with player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -55,13 +49,13 @@ public class ChickenBehavior : MonoBehaviour
             Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
 
-        // Ignore collision with other chickens
-        GameObject[] chickens = GameObject.FindGameObjectsWithTag("Animals");
-        foreach (GameObject chicken in chickens)
+        // Ignore collision with other cows
+        GameObject[] cows = GameObject.FindGameObjectsWithTag("Animals");
+        foreach (GameObject cow in cows)
         {
-            if (chicken != this.gameObject)
+            if (cow != this.gameObject)
             {
-                Physics2D.IgnoreCollision(chicken.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                Physics2D.IgnoreCollision(cow.GetComponent<Collider2D>(), GetComponent<Collider2D>());
             }
         }
     }
@@ -72,12 +66,11 @@ public class ChickenBehavior : MonoBehaviour
         UpdateAnimator();
         UpdateSpriteDirection();
         CheckBoundary();
-        HandleEggLaying();
     }
 
     void FixedUpdate()
     {
-        if (currentState == ChickenState.Moving)
+        if (currentState == CowState.Moving)
         {
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
@@ -102,33 +95,11 @@ public class ChickenBehavior : MonoBehaviour
                 ChangeActivityState();
             }
         }
-
-        layTimer -= Time.deltaTime;
-    }
-
-    void HandleEggLaying()
-    {
-        if (layTimer <= 0f && eggPrefab != null)
-        {
-            SpawnEgg();
-            layTimer = layInterval;
-        }
-    }
-
-    void SpawnEgg()
-    {
-        GameObject egg = Instantiate(eggPrefab, transform.position, Quaternion.identity);
-
-        Collider2D eggCollider = egg.GetComponent<Collider2D>();
-        if (eggCollider != null)
-        {
-            Physics2D.IgnoreCollision(eggCollider, GetComponent<Collider2D>());
-        }
     }
 
     void ChangeMovementState()
     {
-        if (currentState == ChickenState.Eating || currentState == ChickenState.Sleeping)
+        if (currentState == CowState.Eating || currentState == CowState.Sleeping)
         {
             movement = Vector2.zero;
         }
@@ -139,12 +110,12 @@ public class ChickenBehavior : MonoBehaviour
                 Vector2 randomDirection = Random.insideUnitCircle.normalized;
                 Vector2 targetPosition = spawnPoint + randomDirection * maxWanderRadius;
                 movement = (targetPosition - rb.position).normalized;
-                currentState = ChickenState.Moving;
+                currentState = CowState.Moving;
             }
             else
             {
                 movement = Vector2.zero;
-                currentState = ChickenState.Idle;
+                currentState = CowState.Idle;
             }
         }
 
@@ -156,16 +127,16 @@ public class ChickenBehavior : MonoBehaviour
         float randomValue = Random.value;
         if (randomValue < stateChangeChance)
         {
-            currentState = ChickenState.Idle; // Reset to idle first
+            currentState = CowState.Idle; // Reset to idle first
 
             randomValue = Random.value;
             if (randomValue < 0.3f)
             {
-                currentState = ChickenState.Eating;
+                currentState = CowState.Eating;
             }
             else if (randomValue < 0.5f)
             {
-                currentState = ChickenState.Sleeping;
+                currentState = CowState.Sleeping;
             }
         }
 
@@ -178,8 +149,8 @@ public class ChickenBehavior : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.magnitude);
-        animator.SetBool("IsEating", currentState == ChickenState.Eating);
-        animator.SetBool("IsSleeping", currentState == ChickenState.Sleeping);
+        animator.SetBool("IsEating", currentState == CowState.Eating);
+        animator.SetBool("IsSleeping", currentState == CowState.Sleeping);
     }
 
     void CheckBoundary()
@@ -189,7 +160,7 @@ public class ChickenBehavior : MonoBehaviour
         {
             Vector2 directionToSpawn = (spawnPoint - rb.position).normalized;
             movement = directionToSpawn;
-            currentState = ChickenState.Moving;
+            currentState = CowState.Moving;
         }
     }
 
@@ -231,7 +202,7 @@ public class ChickenBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Border"))
         {
             movement = -movement.normalized; // Reverse direction
-            currentState = ChickenState.Moving; // Continue moving in the new direction
+            currentState = CowState.Moving; // Continue moving in the new direction
             SetNewWanderTimer();
         }
     }
