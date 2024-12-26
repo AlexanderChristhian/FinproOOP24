@@ -3,10 +3,14 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    
+    public InventoryMenu inventoryManager;
     public Rigidbody2D rb;
     public Animator animator;
+
+    public float tilingduration = 4f;
+    public float wateringduration = 4f;
     
+    public FarmPlant farmPlant;
     Vector2 movement;
     private string lastDirection = "down"; // Default direction
 
@@ -28,8 +32,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) inventoryManager.SelectSlot(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) inventoryManager.SelectSlot(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) inventoryManager.SelectSlot(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) inventoryManager.SelectSlot(3);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) inventoryManager.SelectSlot(4);
+        if (Input.GetKeyDown(KeyCode.Alpha6)) inventoryManager.SelectSlot(5);
         if (isWatering) return;
-
+        
         // Get input
         float rawX = Input.GetAxisRaw("Horizontal");
         float rawY = Input.GetAxisRaw("Vertical");
@@ -105,6 +115,10 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Watering());
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            StartCoroutine(Tiling());
+        }
     }
 
     void FixedUpdate()
@@ -151,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Set isWatering to true
         isWatering = true;
+        farmPlant.WaterPlantAtPlayerPosition();
 
         // Update Animator to trigger watering animation
         animator.SetFloat("watering", 1f);
@@ -161,5 +176,17 @@ public class PlayerMovement : MonoBehaviour
         // Reset animator and allow movement again
         animator.SetFloat("watering", 0f);
         isWatering = false;
+    }
+
+    IEnumerator Tiling()
+    {
+        // Set animasi tiling ke 1 (mulai tiling)
+        animator.SetFloat("tiling", 1f);
+
+        // Tunggu beberapa detik sebelum mengubah kembali ke 0 (selesai tiling)
+        yield return new WaitForSeconds(2f);
+
+        // Reset animasi tiling ke 0 (selesai tiling)
+        animator.SetFloat("tiling", 0f);
     }
 }
