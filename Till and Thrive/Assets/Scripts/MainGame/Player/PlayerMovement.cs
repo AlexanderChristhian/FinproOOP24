@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("watering", 1f);
 
         // Wait for 2 seconds (watering duration)
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(wateringduration);
 
         // Reset animator and allow movement again
         animator.SetFloat("watering", 0f);
@@ -184,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("tiling", 1f);
 
         // Tunggu beberapa detik sebelum mengubah kembali ke 0 (selesai tiling)
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(tilingduration);
 
         // Reset animasi tiling ke 0 (selesai tiling)
         animator.SetFloat("tiling", 0f);
